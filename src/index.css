@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-100: #e0f2fe;
+  --color-brand-500: #0ea5e9;
+  --color-brand-900: #082f49;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-[#ffb6c1]/80 backdrop-blur-xl border-[4px] border-[#ff69b4] shadow-[8px_8px_0px_#ff1493];
+    border-radius: 2rem;
+  }
+  .glass-button {
+    @apply bg-[#ffe4e1] hover:bg-[#ffb6c1] active:translate-y-1 active:shadow-none border-[3px] border-[#ff69b4] transition-all duration-100 shadow-[0_4px_0px_#ff1493] text-[#c71585];
+  }
+  .glass-button-primary {
+    @apply bg-[#ff69b4] hover:bg-[#ff1493] active:translate-y-1 active:shadow-none border-[3px] border-[#c71585] text-white transition-all duration-100 shadow-[0_4px_0px_#8b0a50];
+  }
+  .glass-button-accent {
+    @apply bg-[#dda0dd] hover:bg-[#da70d6] active:translate-y-1 active:shadow-none border-[3px] border-[#8b008b] text-white transition-all duration-100 shadow-[0_4px_0px_#4b0082];
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+body {
+  @apply antialiased min-h-screen text-[#8b008b];
+  background: linear-gradient(180deg, #ffe4e1 0%, #ffb6c1 100%);
+  font-family: 'Fredoka', sans-serif;
+}
+
+#root {
+  @apply min-h-screen flex flex-col items-center overflow-x-hidden relative;
+}
+
+.pixel-font {
+  font-family: 'VT323', monospace;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
+}
+.animate-blink {
+  animation: blink 4s infinite ease-in-out;
+  display: inline-block;
+  transform-origin: center;
+}
+
